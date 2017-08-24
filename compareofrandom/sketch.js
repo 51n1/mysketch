@@ -43,17 +43,22 @@ function NoiseLine(_s, _c) {
     this.y[i] = 0;
     this.ty[i] = i*10000;
   }
-  
+
   this.render = function() {
     stroke(0);
+    strokeWeight(1);
     fill(255,10);
-    rect(0,0,this.s,this.s);
+    rect(-1,0,this.s+1,this.s);
     noFill();
-    for (var i = 0; i < this.cols; i++) {
+    beginShape();
+    for (var i = 0; i < this.cols+1; i++) {
       var x1 = this.s/this.cols*i;
-      var x2 = this.s/this.cols*(i+1);
-      line(x1, this.y[i], x2, this.y[i+1]);
+      //var x2 = this.s/this.cols*(i+1);
+      //line(x1, this.y[i], x2, this.y[i+1]);
+      if(i==0||i==this.cols) curveVertex(x1, this.y[i]);
+      curveVertex(x1, this.y[i]);
     }
+    endShape();
   };
 
   this.step = function() {
@@ -78,9 +83,10 @@ function RandomLine(_s, _c) {
   for (var i = 0; i < this.cols+1; i++) {
     this.y[i] = this.s*0.5;
   }
-  
+
   this.render = function() {
     stroke(0);
+    strokeWeight(1);
     fill(255,10);
     rect(0,0,this.s,this.s);
     noFill();
