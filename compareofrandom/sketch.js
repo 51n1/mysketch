@@ -5,7 +5,6 @@
 // Based on The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
-// test
 
 var noiseline;
 var randomline;
