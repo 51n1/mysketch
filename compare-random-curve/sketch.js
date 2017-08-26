@@ -112,5 +112,5 @@ function RandomLine(_s, _c) {
 }
 
 function touchMoved() {
-	return false;
+  return false;
 }
