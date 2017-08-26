@@ -37,9 +37,9 @@ function Ball(_c) {
   };
   
   this.check = function() {
-  	if(this.pos.dist(this.tmp) < 10) {
-    	this.tmp = this.tmp.dist(this.fst) > this.tmp.dist(this.snd) ? this.fst : this.snd;
-    	//this.velocity.setMag(1);
+    if(this.pos.dist(this.tmp) < 10) {
+      this.tmp = this.tmp.dist(this.fst) > this.tmp.dist(this.snd) ? this.fst : this.snd;
+      //this.velocity.setMag(1);
     }
   };
   
@@ -59,5 +59,5 @@ function Ball(_c) {
 }
 
 function touchMoved() {
-	return false;
+  return false;
 }
