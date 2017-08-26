@@ -13,7 +13,7 @@ function draw() {
   b.update();
   b.check();
   b.display();
-  if (touches.length > 1) saveCanvas();
+  if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
 }
 
 function Ball(_c) {
@@ -24,7 +24,7 @@ function Ball(_c) {
   this.velocity = createVector(random(-0.1,0.1), random(-0.1,0.1));
   this.acceleration = createVector();
   this.c = _c;
-  
+
   this.update = function() {
   	this.acceleration = p5.Vector.sub(this.tmp, this.pos);
     this.acceleration.setMag(0.01);
@@ -32,25 +32,25 @@ function Ball(_c) {
     this.velocity.y += random(-0.05, 0.05);
     this.velocity.limit(1);
     this.pos.add(this.velocity);
-    
+
     //print(p5.Vector.sub(this.pos, this.fst));
   };
-  
+
   this.check = function() {
     if(this.pos.dist(this.tmp) < 10) {
       this.tmp = this.tmp.dist(this.fst) > this.tmp.dist(this.snd) ? this.fst : this.snd;
       //this.velocity.setMag(1);
     }
   };
-  
+
   this.display = function () {
-  	fill(this.c);
-  	stroke(128, 20);
+    fill(this.c);
+    stroke(128, 20);
     ellipse (this.pos.x, this.pos.y, 20, 20);
-    
+
     stroke(0);
     point(this.pos.x, this.pos.y);
-    
+
     noFill();
     stroke(128, 20);
     ellipse(this.fst.x, this.fst.y, 20, 20);
