@@ -15,7 +15,7 @@ function setup() {
   imgsize = width*0.33;
   noiseline = new NoiseLine(imgsize, 20);
   randomline = new RandomLine(imgsize, 20);
-  background(255);
+  background(200);
 }
 
 function draw() {
