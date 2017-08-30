@@ -10,15 +10,17 @@ function setup() {
 }
 
 function draw() {
+  beginShape();
   for(var i = 0; i < 360; i += 10) {
     var angle = i;
-    var x = width/2 + radius * sin(radians(angle));
-    var y = height/2 + radius * cos(radians(angle));
+    var x = width*0.5 + radius * sin(radians(angle));
+    var y = height*0.5 + radius * cos(radians(angle));
 
-    noStroke();
-    fill(20, 10);
-    ellipse(x, y, 10, 10);
+    stroke(0);
+    noFill();
+    vertex(x, y);
   }
+  endShape(CLOSE);
 
   if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
 }
