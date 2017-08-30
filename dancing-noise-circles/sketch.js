@@ -7,6 +7,7 @@ var radius;
 function setup() {
   createCanvas(windowWidth,windowHeight);
   radius = width > height ? height*0.4 : width*0.4;
+  background(255);
 }
 
 function draw() {
