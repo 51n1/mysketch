@@ -14,7 +14,7 @@ function setup() {
   x = imgsize*0.5;
   y = imgsize*0.5;
   doff = 0;
-  background(200);
+  background(225);
 }
 
 function draw() {
