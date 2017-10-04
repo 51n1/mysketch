@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>TEST</title>
+    <title>Read Sound Test</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.sound.min.js" type="text/javascript"></script>
@@ -10,54 +10,47 @@
     </style>
   </head>
 <body>
-<p><input type="file" accept="audio/*" id="upfile" /></p>
+<p><input type="file" accept="audio/*" id="inputfile" /></p>
 <script>
-var mysound;
-var soundflag = 0;
-
+// p5.js Part
+var mysound, analyzer;
 function setup() {
   var canvas = createCanvas(200, 200);
   background(200);
   textAlign(CENTER);
   text('select sound', width/2, height/2);
-  //mysound.play();
-  //mysound.loop();
-  //mysound.stop();
+  analyzer = new p5.Amplitude();
 }
 function draw() {
+  if(mysound) {
+    var value = analyzer.getLevel();
+    background(map(value, 0, 1, 0, 255));
+  }
 }
 function playSound() {
   mysound.play();
   mysound.loop();
+  analyzer.setInput(mysound);
 }
 </script>
-
 <script>
-// ファイル選択フォームに変更時に、フォームの値をコンソールログに表示する
-$("#upfile").change(function(){
+// When change select input file, show file name to console.log.
+$("#inputfile").change(function(){
   if (this.files.length > 0) {
-    // 選択されたファイル情報を取得
+    // Get selected file object
     var file = this.files[0];
     console.log(file.name);
-    // ファイル読み込みの準備
+    // Ready of reading file
     var reader = new FileReader();
-    // ファイルの読み込みに成功したら、その内容をオーディオの再生に反映
+    // If success of reading file, use it as audio source.
     reader.addEventListener('load', function(e) {
-      //new Audio(reader.result).play();
-      if(soundflag == 1) {
-        mysound.stop();
-        mysound.setPath(reader.result);
-        mysound.play();
-      } else {
-        mysound = loadSound(reader.result, playSound);
-        soundflag = 1;
-      }
+      if(mysound) mysound.disconnect();
+      mysound = loadSound(reader.result, playSound);
     }, true);
-    // ファイルの内容をData URL形式で取得
+    // Get file data as Data URL format
     reader.readAsDataURL(file);
   }
 });
 </script>
-
 </body>
 </html>
