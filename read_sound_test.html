@@ -45,7 +45,7 @@ function playSound() {
   if(mysound && !mysound.isPlaying()) mysound.play();
   else {
     mysound = loadSound(defaultsound, initSound);
-    $('p>a:eq(2)').html('<i class="fa fa-file-audio-o" aria-hidden="true"></i> '+defaultsound);
+    $('p>a:eq(2)').html('<i class="fa fa-file-audio-o" aria-hidden="true"></i> '+"default sound");
   }
 }
 function stopSound() {
