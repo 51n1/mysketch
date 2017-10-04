@@ -14,6 +14,8 @@
   </head>
 <body>
 <p>
+  <a onclick="playSound()"><i class="fa fa-play" aria-hidden="true"></i> Play</a>
+  <a onclick="stopSound()"><i class="fa fa-stop" aria-hidden="true"></i> Stop</a>
   <input type="file" accept="audio/*" id="inputfile" />
   <a onclick="$('#inputfile').click();"><i class="fa fa-file-audio-o" aria-hidden="true"></i> Select Sound</a>
 </p>
@@ -33,23 +35,30 @@ function draw() {
     background(map(value, 0, 1, 0, 255));
   }
 }
-function playSound() {
-  mysound.play();
+function initSound() {
   mysound.loop();
+  mysound.stop();
   analyzer.setInput(mysound);
+}
+function playSound() {
+  if(!mysound.isPlaying()) mysound.play();
+}
+function stopSound() {
+  if(mysound.isPlaying()) mysound.stop();
 }
 // When change select input file, show file name to console.log.
 $("#inputfile").change(function(){
   if (this.files.length > 0) {
     // Get selected file object
     var file = this.files[0];
+    $('p>a:eq(2)').html('<i class="fa fa-file-audio-o" aria-hidden="true"></i> '+file.name)
     console.log(file.name);
     // Ready of reading file
     var reader = new FileReader();
     // If success of reading file, use it as audio source.
     reader.addEventListener('load', function(e) {
       if(mysound) mysound.disconnect();
-      mysound = loadSound(reader.result, playSound);
+      mysound = loadSound(reader.result, initSound);
     }, true);
     // Get file data as Data URL format
     reader.readAsDataURL(file);
