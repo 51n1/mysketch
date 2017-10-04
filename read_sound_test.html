@@ -22,6 +22,7 @@
 <script>
 // p5.js Part
 var mysound, analyzer;
+var defaultsound = "20170914.wav";
 function setup() {
   var canvas = createCanvas(200, 200);
   background(200);
@@ -42,6 +43,7 @@ function initSound() {
 }
 function playSound() {
   if(mysound && !mysound.isPlaying()) mysound.play();
+  else mysound = loadSound(defaultsound, initSound);
 }
 function stopSound() {
   if(mysound && mysound.isPlaying()) mysound.stop();
