@@ -41,10 +41,10 @@ function initSound() {
   analyzer.setInput(mysound);
 }
 function playSound() {
-  if(!mysound.isPlaying()) mysound.play();
+  if(mysound && !mysound.isPlaying()) mysound.play();
 }
 function stopSound() {
-  if(mysound.isPlaying()) mysound.stop();
+  if(mysound && mysound.isPlaying()) mysound.stop();
 }
 // When change select input file, show file name to console.log.
 $("#inputfile").change(function(){
