@@ -6,11 +6,17 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/addons/p5.sound.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+      a { cursor: pointer; }
+      #inputfile { display:none; }
     </style>
   </head>
 <body>
-<p><input type="file" accept="audio/*" id="inputfile" /></p>
+<p>
+  <input type="file" accept="audio/*" id="inputfile" />
+  <a onclick="$('#inputfile').click();"><i class="fa fa-file-audio-o" aria-hidden="true"></i> Select Sound</a>
+</p>
 <script>
 // p5.js Part
 var mysound, analyzer;
@@ -32,8 +38,6 @@ function playSound() {
   mysound.loop();
   analyzer.setInput(mysound);
 }
-</script>
-<script>
 // When change select input file, show file name to console.log.
 $("#inputfile").change(function(){
   if (this.files.length > 0) {
