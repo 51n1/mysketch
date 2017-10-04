@@ -67,7 +67,7 @@ $("#inputfile").change(function(){
     // If success of reading file, use it as audio source.
     reader.addEventListener('load', function(e) {
       if(mysound) mysound.disconnect();
-      mysound = loadSound(reader.result, initSound, null, soundLoading);
+      mysound = loadSound(reader.result, initSound);
     }, true);
     // Get file data as Data URL format
     reader.readAsDataURL(file);
