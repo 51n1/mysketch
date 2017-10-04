@@ -43,7 +43,10 @@ function initSound() {
 }
 function playSound() {
   if(mysound && !mysound.isPlaying()) mysound.play();
-  else mysound = loadSound(defaultsound, initSound);
+  else {
+    mysound = loadSound(defaultsound, initSound);
+    $('p>a:eq(2)').html('<i class="fa fa-file-audio-o" aria-hidden="true"></i> '+defaultsound);
+  }
 }
 function stopSound() {
   if(mysound && mysound.isPlaying()) mysound.stop();
@@ -53,7 +56,7 @@ $("#inputfile").change(function(){
   if (this.files.length > 0) {
     // Get selected file object
     var file = this.files[0];
-    $('p>a:eq(2)').html('<i class="fa fa-file-audio-o" aria-hidden="true"></i> '+file.name)
+    $('p>a:eq(2)').html('<i class="fa fa-file-audio-o" aria-hidden="true"></i> '+file.name);
     console.log(file.name);
     // Ready of reading file
     var reader = new FileReader();
