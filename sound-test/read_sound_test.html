@@ -10,6 +10,11 @@
     <style>
       a { cursor: pointer; }
       #inputfile { display:none; }
+      .nonactive {
+        color: #999;
+        background-color: rgba(240, 240, 240, 0.5);
+        cursor: default;
+      }
     </style>
   </head>
 <body>
@@ -21,21 +26,27 @@
 </p>
 <script>
 // init.js Part
+var selectsound;
 function initSound() {
   mysound.loop();
   mysound.stop();
   analyzer.setInput(mysound);
+  $("p>a:eq(0),p>a:eq(1)").removeClass("nonactive");
+  $('#soundname').html(selectsound);
 }
 function playSound() {
   if ( mysound && !mysound.isPlaying() ) {
     mysound.play();
   } else if ( !mysound && defaultsound  ) {
     console.log(defaultsound);
+    selectsound = defaultsound;
+    $('#soundname').html("Loading...");
+    $("p>a:eq(0),p>a:eq(1)").addClass("nonactive");
     mysound = loadSound(defaultsound, function() { initSound(); mysound.play(); });
   }
 }
 function stopSound() {
-  if(mysound && mysound.isPlaying()) mysound.stop();
+  if( mysound && mysound.isPlaying() ) mysound.stop();
 }
 function soundLoading() {
   $('body').append('<p>Loading</p>');
@@ -45,7 +56,9 @@ $("#inputfile").change(function(){
   if (this.files.length > 0) {
     // Get selected file object
     var file = this.files[0];
-    $('#soundname').html(file.name);
+    selectsound = file.name;
+    $('#soundname').html("Loading...");
+    $("p>a:eq(0),p>a:eq(1)").addClass("nonactive");
     console.log(file.name);
     // Ready of reading file
     var reader = new FileReader();
