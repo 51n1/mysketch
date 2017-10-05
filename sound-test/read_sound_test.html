@@ -20,6 +20,7 @@
   <a onclick="$('#inputfile').click();"><i class="fa fa-file-audio-o" aria-hidden="true"></i> Select: <span id="soundname">Default Sound</span></a>
 </p>
 <script>
+// init.js Part
 function initSound() {
   mysound.loop();
   mysound.stop();
@@ -29,6 +30,7 @@ function playSound() {
   if ( mysound && !mysound.isPlaying() ) {
     mysound.play();
   } else if ( !mysound && defaultsound  ) {
+    console.log(defaultsound);
     mysound = loadSound(defaultsound, function() { initSound(); mysound.play(); });
   }
 }
@@ -43,7 +45,7 @@ $("#inputfile").change(function(){
   if (this.files.length > 0) {
     // Get selected file object
     var file = this.files[0];
-    $('p>a:eq(2)').html('<i class="fa fa-file-audio-o" aria-hidden="true"></i> '+file.name);
+    $('#soundname').html(file.name);
     console.log(file.name);
     // Ready of reading file
     var reader = new FileReader();
