@@ -17,36 +17,19 @@
   <a onclick="playSound()"><i class="fa fa-play" aria-hidden="true"></i> Play</a>
   <a onclick="stopSound()"><i class="fa fa-stop" aria-hidden="true"></i> Stop</a>
   <input type="file" accept="audio/*" id="inputfile" />
-  <a onclick="$('#inputfile').click();"><i class="fa fa-file-audio-o" aria-hidden="true"></i> Select Sound</a>
+  <a onclick="$('#inputfile').click();"><i class="fa fa-file-audio-o" aria-hidden="true"></i> Select: <span id="soundname">Default Sound</span></a>
 </p>
 <script>
-// p5.js Part
-var mysound, analyzer;
-var defaultsoundf = "20170914.wav";
-function setup() {
-  var canvas = createCanvas(200, 200);
-  background(200);
-  textAlign(CENTER);
-  text('select sound', width/2, height/2);
-  analyzer = new p5.Amplitude();
-}
-function draw() {
-  if(mysound) {
-    var value = analyzer.getLevel();
-    background(map(value, 0, 1, 0, 255));
-  }
-}
 function initSound() {
-  //mysound.play();
   mysound.loop();
+  mysound.stop();
   analyzer.setInput(mysound);
 }
 function playSound() {
-  if(mysound && !mysound.isPlaying()) {
+  if ( mysound && !mysound.isPlaying() ) {
     mysound.play();
-  } else if(defaultsoundf) {
-    mysound = loadSound(defaultsoundf, initSound);
-    $('p>a:eq(2)').html('<i class="fa fa-file-audio-o" aria-hidden="true"></i> '+defaultsoundf);
+  } else if ( !mysound && defaultsound  ) {
+    mysound = loadSound(defaultsound, function() { initSound(); mysound.play(); });
   }
 }
 function stopSound() {
@@ -73,6 +56,25 @@ $("#inputfile").change(function(){
     reader.readAsDataURL(file);
   }
 });
+</script>
+<script>
+// p5.js Part
+var mysound;
+var analyzer = new p5.Amplitude();
+var defaultsound = "20170914.wav";
+
+function setup() {
+  var canvas = createCanvas(200, 200);
+  background(200);
+  textAlign(CENTER);
+  text('select sound', width/2, height/2);
+}
+function draw() {
+  if(mysound) {
+    var value = analyzer.getLevel();
+    background(map(value, 0, 1, 0, 255));
+  }
+}
 </script>
 </body>
 </html>
