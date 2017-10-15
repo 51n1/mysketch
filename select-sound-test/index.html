@@ -32,7 +32,7 @@ var selectsound;
 function initSound() {
   mysound.loop();
   mysound.stop();
-  analyzer.setInput(mysound);
+  analyzer.setInput(mysound); // Patch the input to an volume analyzer
   $("p>a:eq(0),p>a:eq(1)").removeClass("nonactive");
   $('#soundname').html(selectsound);
 }
