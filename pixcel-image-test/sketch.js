@@ -11,8 +11,8 @@ function setup() {
 }
 
 function draw() {
-  background(100);
-  
+  background(200);
+
   img.loadPixels();
   for (var x = width/4; x < width*3/4; x+=5) {
     for (var y = height/4; y < height*3/4; y+=5) {
