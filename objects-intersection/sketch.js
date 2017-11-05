@@ -6,6 +6,8 @@ let bubbles = [];
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
+  // createCanvas(640,400);
+  // frameRate(10);
   for (let i = 0; i < 100; i++) {
     let x = random(width);
     let y = random(height);
@@ -47,6 +49,7 @@ function draw() {
   }
 
   if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
+  // save(frameCount+".png");
 }
 
 class Bubble {
