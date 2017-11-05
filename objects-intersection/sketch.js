@@ -2,54 +2,49 @@
 // 7.7: Checking Objects Intersection Part 2
 // - p5.js Tutorial by Daniel Shiffman
 
-// let bubbles = [];
-let b1;
-let b2;
+let bubbles = [];
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  b1 = new Bubble(250, 200, 50);
-  b2 = new Bubble(350, 200, 50);
-  // for (let i = 0; i < 10; i++) {
-  //   let x = random(width);
-  //   let y = random(height);
-  //   let r = random(10, 50);
-  //   let b = new Bubble(x, y, r);
-  //   bubbles.push(b);
-  // }
+  for (let i = 0; i < 100; i++) {
+    let x = random(width);
+    let y = random(height);
+    let r = random(10, 30);
+    let b = new Bubble(x, y, r);
+    bubbles.push(b);
+  }
 }
 
-// function mousePressed() {
-//   for (let i = bubbles.length - 1; i >= 0; i--) {
-//     if ( bubbles[i].contains(mouseX, mouseY) ) {
-//       bubbles.splice(i, 1);
-//       return;
-//     }
-//   }
-// }
+// 7.4: Mouse Interaction with Objects
+function mousePressed() {
+  for (let i = bubbles.length - 1; i >= 0; i--) {
+    if ( bubbles[i].contains(mouseX, mouseY) ) {
+      bubbles.splice(i, 1);
+      return;
+    }
+  }
+}
 
 function draw() {
   background(0);
 
-  b1.move();
-  b1.show();
-  b2.move();
-  b2.show();
-
-  if ( b1.intersects(b2) ) {
-    b1.changeColor(random(255));
-    b2.changeColor(random(255));
+  for (let i = 0; i < bubbles.length; i++) {
+    bubbles[i].move();
+    bubbles[i].show();
+    // 7.7: Checking Objects Intersection
+    for (let j = 0; j < bubbles.length; j++) {
+      if ( i != j && bubbles[i].intersects(bubbles[j]) ) {
+        bubbles[i].changeColor(random(255));
+        bubbles[j].changeColor(random(255));
+      }
+    }
+    // 7.4: Mouse Interaction with Objects
+    if ( bubbles[i].contains(mouseX, mouseY) ) {
+      bubbles[i].changeColor(255);
+    } else if ( !bubbles[i].contains(pmouseX, pmouseY) ) {
+      bubbles[i].changeColor(0);
+    }
   }
-
-  // for (let i = 0; i < bubbles.length; i++) {
-  //   if ( bubbles[i].contains(mouseX, mouseY) ) {
-  //     bubbles[i].changeColor(255);
-  //   } else {
-  //     bubbles[i].changeColor(0);
-  //   }
-  //   bubbles[i].move();
-  //   bubbles[i].show();
-  // }
 
   if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
 }
@@ -91,12 +86,12 @@ class Bubble {
 
   show() {
     stroke(255);
-    strokeWeight(2);
+    strokeWeight(1);
     fill(this.brightness, 125);
     ellipse(this.x, this.y, this.r * 2);
   }
 }
 
-// function touchMoved() {
-//   return false;
-// }
+function touchMoved() {
+  return false;
+}
