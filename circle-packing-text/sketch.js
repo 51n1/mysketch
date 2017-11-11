@@ -5,12 +5,12 @@ let spots = [];
 let img;
 
 function preload() {
-  img = loadImage("rittsu.png");
+  img = loadImage("fuji.png");
 }
 
 function setup() {
   // createCanvas(windowWidth,windowHeight);
-  createCanvas(800, 400);
+  createCanvas(900, 450);
   // frameRate(10);
   let density = displayDensity();
   pixelDensity(density);
