@@ -33,7 +33,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(79, 54, 71);
 
   let total = 10;
   let count = 0;
@@ -121,9 +121,9 @@ class Circle {
   }
 
   show() {
-    stroke(255);
+    stroke(0, 5, 2);
     strokeWeight(2);
-    noFill();
+    fill(255);
     ellipse(this.x, this.y, this.r * 2);
   }
 }
