@@ -5,12 +5,12 @@ let spots = [];
 let img;
 
 function preload() {
-  img = loadImage("fuji.png");
+  img = loadImage("rittsu.png");
 }
 
 function setup() {
   // createCanvas(windowWidth,windowHeight);
-  createCanvas(900,450);
+  createCanvas(800, 400);
   // frameRate(10);
   let density = displayDensity();
   pixelDensity(density);
@@ -33,7 +33,7 @@ function setup() {
 }
 
 function draw() {
-  background(79, 54, 71);
+  background(0);
 
   let total = 10;
   let count = 0;
@@ -121,9 +121,9 @@ class Circle {
   }
 
   show() {
-    stroke(0, 5, 2);
+    stroke(255);
     strokeWeight(2);
-    fill(255);
+    noFill();
     ellipse(this.x, this.y, this.r * 2);
   }
 }
