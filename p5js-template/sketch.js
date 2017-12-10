@@ -28,3 +28,7 @@ class Circle {
 function touchMoved() {
   return false;
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
