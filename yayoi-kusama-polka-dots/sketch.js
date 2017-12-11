@@ -65,3 +65,8 @@ function draw() {
 function touchMoved() {
   return false;
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  setupCircles();
+}
