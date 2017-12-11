@@ -1,9 +1,22 @@
 // - 9.8: Random Circles with No Overlap - p5.js Tutorial by Daniel Shiffman
-let circles = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(0);
+  setupCircles();
+}
+
+function setupCircles() {
+  let circles = [];
+  let colors = [];
+  colors[0] = { fg: color(255), bg: color(0) };
+  colors[1] = { fg: color(255, 70, 10), bg: color(255) };
+  colors[2] = { fg: color(0), bg: color(255, 210, 0) };
+  colors[3] = { fg: color(255), bg: color(240, 5, 50) };
+  let num = floor(random(4));
+  // console.log(num);
+  let kusamacolor = colors[num];
+
+  background(kusamacolor.bg);
 
   let protection = 0;
   while (circles.length < 1000) {
@@ -33,10 +46,14 @@ function setup() {
   }
 
   for (let i = 0; i < circles.length; i++) {
-    fill(255);
+    fill(kusamacolor.fg);
     noStroke();
     ellipse(circles[i].x, circles[i].y, circles[i].r * 2);
   }
+}
+
+function mousePressed() {
+  setupCircles();
 }
 
 function draw() {
