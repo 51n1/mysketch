@@ -41,25 +41,18 @@ class Particle {
     let v = createVector(this.x, this.y);
     this.history.push(v);
 
-    if (this.history.length > 100) {
+    if (this.history.length > 50) {
       this.history.splice(0, 1);
     }
   }
 
   show() {
-    stroke(0);
-    fill(0, 150);
-    ellipse(this.x, this.y, this.r * 2);
-
-    noFill();
-    beginShape();
     for (let i = 0; i < this.history.length; i++) {
       let pos = this.history[i];
-      // fill(random(255));
-      // ellipse(pos.x, pos.y, i, i);
-      vertex(pos.x, pos.y);
+      noStroke();
+      fill(0, 50);
+      ellipse(pos.x, pos.y, i, i);
     }
-    endShape();
   }
 }
 
