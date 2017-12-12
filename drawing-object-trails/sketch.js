@@ -4,7 +4,6 @@ let particles = [];
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  //particle = new Particle(width/2, height/2);
 }
 
 function mousePressed() {
@@ -34,10 +33,15 @@ class Particle {
     this.x += random(-5, 5);
     this.y += random(-5, 5);
 
+    for (let i = 0; i < this.history.length; i++) {
+      this.history[i].x += random(-2, 2);
+      this.history[i].y += random(-2, 2);
+    }
+
     let v = createVector(this.x, this.y);
     this.history.push(v);
 
-    if (this.history.length > 25) {
+    if (this.history.length > 100) {
       this.history.splice(0, 1);
     }
   }
@@ -47,11 +51,15 @@ class Particle {
     fill(0, 150);
     ellipse(this.x, this.y, this.r * 2);
 
+    noFill();
+    beginShape();
     for (let i = 0; i < this.history.length; i++) {
       let pos = this.history[i];
-      fill(random(255));
-      ellipse(pos.x, pos.y, i, i);
+      // fill(random(255));
+      // ellipse(pos.x, pos.y, i, i);
+      vertex(pos.x, pos.y);
     }
+    endShape();
   }
 }
 
