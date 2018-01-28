@@ -5,15 +5,15 @@ function setup() {
   // createCanvas(windowWidth, windowHeight);
   createCanvas(400, 300);
   
-  // capture = createCapture(VIDEO);
-  createCapture(VIDEO);
-  // capture.size(320, 240);
+  capture = createCapture(VIDEO);
+  // createCapture(VIDEO);
+  capture.size(320, 240);
   // capture.hide();
 }
 
 function draw() {
-  // background(255, 255, 0);
-  // image(capture, 0, 0, 320, 240);
+  background(51);
+  image(capture, 0, 100, 320, 240);
   // filter(INVERT);
   
   if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
