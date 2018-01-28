@@ -4,6 +4,7 @@ let capture;
 let snapshots = [];
 let go = false;
 let counter = 0;
+let total = 43;
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
@@ -25,7 +26,7 @@ function draw() {
     //snapshots.push(capture.get());
     snapshots[counter] = capture.get();
     counter++;
-    if (counter == 40) {
+    if (counter == total) {
       counter = 0;
     }
   }
@@ -34,8 +35,9 @@ function draw() {
   let x = 0;
   let y = 0;
   for (let i = 0; i < snapshots.length; i++) {
-    tint(255, 50);
-    image(snapshots[i], x, y, w, h);
+    //tint(255, 50);
+    let index = (i + frameCount) % snapshots.length;
+    image(snapshots[index], x, y, w, h);
     x = x + w;
     if (x > width) {
       x = 0;
