@@ -7,12 +7,13 @@ function setup() {
   background(51);
   capture = createCapture(VIDEO);
   capture.size(320, 240);
-  capture.hide();
+  // capture.hide();
 }
 
 function draw() {
   
   image(capture, 0, 0, 320, 240);
+  filter(INVERT);
   
   if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
   // save(frameCount+".png");
