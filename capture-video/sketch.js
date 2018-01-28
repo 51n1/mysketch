@@ -1,10 +1,9 @@
 
-var capture;
+let capture;
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
-  createCanvas(400, 600);
-  pixelDensity(1);
+  createCanvas(500, 600);
   
   capture = createCapture(VIDEO);
   // createCapture(VIDEO);
@@ -13,9 +12,9 @@ function setup() {
 }
 
 function draw() {
-  // background(51);
-  image(capture, 0, 100, 320, 240);
-  // filter(INVERT);
+  background(100);
+  image(capture, 350, 0, 320, 240);
+  filter(INVERT);
   
   //if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
   // save(frameCount+".png");
