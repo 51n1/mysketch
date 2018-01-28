@@ -14,7 +14,7 @@ function setup() {
 }
 
 function takesnap() {
-  image(capture, 0, 0);
+  image(capture, 0, 0, width, height);
 }
 
 function draw() {
