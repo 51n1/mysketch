@@ -25,6 +25,9 @@ function draw() {
     //snapshots.push(capture.get());
     snapshots[counter] = capture.get();
     counter++;
+    if (counter == 40) {
+      counter = 0;
+    }
   }
   let w = 80;
   let h = 60;
