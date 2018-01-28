@@ -3,18 +3,18 @@ let capture;
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
-  createCanvas(240, 320);
+  createCanvas(640, 240);
   background(100);
   
   capture = createCapture(VIDEO);
   // createCapture(VIDEO);
-  capture.size(240, 320);
+  capture.size(320, 240);
   // capture.hide();
 }
 
 function draw() {
   
-  image(capture, 0, 0, 240, 320);
+  image(capture, 320, 0, 320, 240);
   filter(INVERT);
   
   //if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
