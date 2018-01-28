@@ -17,6 +17,10 @@ function takesnap() {
   image(capture, 0, 0, width, height);
 }
 
+function mousePressed() {
+  image(capture, 0, 0);
+}
+
 function draw() {
   // background(100);
   // tint(255, 0, 125);
