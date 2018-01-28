@@ -4,7 +4,6 @@ let capture;
 function setup() {
   // createCanvas(windowWidth, windowHeight);
   createCanvas(640, 240);
-  background(100);
   
   capture = createCapture(VIDEO);
   // createCapture(VIDEO);
@@ -13,7 +12,7 @@ function setup() {
 }
 
 function draw() {
-  
+  background(100);
   image(capture, 320, 0, 320, 240);
   filter(INVERT);
   
