@@ -1,14 +1,20 @@
 
 let capture;
+let button;
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
   createCanvas(320, 240);
-
+  background(100);
   capture = createCapture(VIDEO);
   capture.size(320, 240);
   // capture.hide();
-  createButton('snap');
+  button = createButton('snap');
+  button.mousePressed(takesnap);
+}
+
+function takesnap() {
+  image(capture, 0, 0);
 }
 
 function draw() {
