@@ -1,7 +1,9 @@
 
 let capture;
-let button;
+//let button;
 let snapshots = [];
+let go = false;
+let counter = 0;
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
@@ -14,14 +16,15 @@ function setup() {
   //button.mousePressed(takesnap);
 }
 
-let go = false;
 function ready() {
   go = true;
 }
 
 function draw() {
   if (go) {
-    snapshots.push(capture.get());
+    //snapshots.push(capture.get());
+    snapshots[counter] = capture.get();
+    counter++;
   }
   let w = 80;
   let h = 60;
