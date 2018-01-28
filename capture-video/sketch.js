@@ -6,8 +6,7 @@ function setup() {
   createCanvas(320, 240);
   
   capture = createCapture(VIDEO);
-  // createCapture(VIDEO);
-  // capture.size(320, 240);
+  capture.size(320, 240);
   // capture.hide();
 }
 
