@@ -20,9 +20,18 @@ function takesnap() {
 }
 
 function draw() {
+  let w = 80;
+  let h = 60;
+  let x = 0;
+  let y = 0;
   for (let i = 0; i < snapshots.length; i++) {
     tint(255, 50);
-    image(snapshots[i], 0, 0, capture.width, capture.height);
+    image(snapshots[i], x, y, w, h);
+    x = x + w;
+    if (x > width) {
+      x = 0;
+      y = y + h;
+    }
   }
   // background(100);
   // tint(255, 0, 125);
