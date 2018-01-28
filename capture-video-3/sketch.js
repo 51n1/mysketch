@@ -13,8 +13,8 @@ function setup() {
   capture = createCapture(VIDEO, ready);
   capture.size(320, 240);
   // capture.hide();
-  //button = createButton('snap');
-  //button.mousePressed(takesnap);
+  // button = createButton('snap');
+  // button.mousePressed(takesnap);
 }
 
 function ready() {
@@ -23,7 +23,7 @@ function ready() {
 
 function draw() {
   if (go) {
-    //snapshots.push(capture.get());
+    // snapshots.push(capture.get());
     snapshots[counter] = capture.get();
     counter++;
     if (counter == total) {
@@ -35,7 +35,7 @@ function draw() {
   let x = 0;
   let y = 0;
   for (let i = 0; i < snapshots.length; i++) {
-    //tint(255, 50);
+    // tint(255, 50);
     let index = (i + frameCount) % snapshots.length;
     image(snapshots[index], x, y, w, h);
     x = x + w;
