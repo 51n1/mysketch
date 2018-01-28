@@ -3,7 +3,7 @@ let capture;
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
-  createCanvas(500, 600);
+  createCanvas(650, 250);
   
   capture = createCapture(VIDEO);
   // createCapture(VIDEO);
@@ -13,7 +13,7 @@ function setup() {
 
 function draw() {
   background(100);
-  image(capture, 350, 0, 320, 240);
+  image(capture, 330, 5, 320, 240);
   filter(INVERT);
   
   //if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
