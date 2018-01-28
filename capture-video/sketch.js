@@ -1,9 +1,10 @@
 
-let capture;
+var capture;
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
-  createCanvas(400, 300);
+  createCanvas(400, 600);
+  pixelDensity(1);
   
   capture = createCapture(VIDEO);
   // createCapture(VIDEO);
@@ -12,18 +13,18 @@ function setup() {
 }
 
 function draw() {
-  background(51);
+  // background(51);
   image(capture, 0, 100, 320, 240);
   // filter(INVERT);
   
-  if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
+  //if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
   // save(frameCount+".png");
 }
 
-function touchMoved() {
-  return false;
-}
+//function touchMoved() {
+//  return false;
+//}
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+//function windowResized() {
+//  resizeCanvas(windowWidth, windowHeight);
+//}
