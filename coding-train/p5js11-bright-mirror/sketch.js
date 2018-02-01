@@ -11,14 +11,21 @@ function setup() {
 function draw() {
   background(51);
 
+  video.loadPixels();
   loadPixels();
 
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       let index = (x + y * width) * 4;
-      pixels[index] = x;
-      pixels[index+1] = y;
-      pixels[index+2] = 0;
+      let r = video.pixels[index+0];
+      let g = video.pixels[index+1];
+      let b = video.pixels[index+2];
+
+      let bright = (r+g+b)/3;
+
+      pixels[index+0] = bright;
+      pixels[index+1] = bright;
+      pixels[index+2] = bright;
       pixels[index+3] = 255;
     }
   }
