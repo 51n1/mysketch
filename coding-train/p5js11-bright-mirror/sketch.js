@@ -13,18 +13,23 @@ function draw() {
   background(51);
 
   video.loadPixels();
-  loadPixels();
+  // loadPixels();
 
   for (let y = 0; y < video.height; y++) {
     for (let x = 0; x < video.width; x++) {
-      let index = (x + y * video.width) * 4;
+      let index = (video.width - x + 1 + ( y * video.width )) * 4;
       let r = video.pixels[index+0];
       let g = video.pixels[index+1];
       let b = video.pixels[index+2];
 
       let bright = (r+g+b)/3;
-      fill(bright);
-      rect(x*vScale, y*vScale, vScale, vScale);
+
+      let w = map(bright, 0, 255, 0, vScale);
+
+      noStroke();
+      fill(255);
+      rectMode(CENTER);
+      rect(x*vScale, y*vScale, w, w);
 
       // pixels[index+0] = bright;
       // pixels[index+1] = bright;
