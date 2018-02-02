@@ -4,16 +4,30 @@ let video;
 let vScale = 16;
 let slider;
 
+let cols = 40;
+let rows = 40;
+
+let boxes = [];
+
 function setup() {
-  createCanvas(640, 480);
+  noCanvas();
   pixelDensity(1);
   video = createCapture(VIDEO);
-  video.size(width/vScale, height/vScale);
-  slider = createSlider(0, 255, 127);
+  video.size(cols, rows);
+  slider = createSlider(0, 255, 77);
+
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      let box = createCheckbox();
+      box.parent('mirror');
+      boxes.push(box);
+    }
+    let linebreak = createSpan('<br/>');
+    linebreak.parent('mirror');
+  }
 }
 
 function draw() {
-  background(51);
 
   video.loadPixels();
   // loadPixels();
@@ -29,22 +43,19 @@ function draw() {
 
       let threshold = slider.value();
 
+      let checkIndex = x + y * cols;
+
       if (bright > threshold) {
-        fill(255);
+        boxes[checkIndex].checked(false);
       } else {
-        fill(0);
+        boxes[checkIndex].checked(true);
       }
-
-      noStroke();
-      rectMode(CENTER);
-      rect(x*vScale, y*vScale, vScale, vScale);
-
     }
   }
 
   // updatePixels();
 
-  if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
+  // if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
   // save(frameCount+".png");
 }
 
