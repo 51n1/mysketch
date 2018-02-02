@@ -4,7 +4,7 @@ let video;
 let slider;
 
 let cols = 40;
-let rows = 40;
+let rows = 30;
 
 let boxes = [];
 
