@@ -1,7 +1,6 @@
 // 11.5: Checkbox Mirror - p5.js Tutorial by Daniel Shiffman
 
 let video;
-let vScale = 16;
 let slider;
 
 let cols = 40;
@@ -11,7 +10,6 @@ let boxes = [];
 
 function setup() {
   noCanvas();
-  pixelDensity(1);
   video = createCapture(VIDEO);
   video.size(cols, rows);
   slider = createSlider(0, 255, 77);
@@ -30,7 +28,6 @@ function setup() {
 function draw() {
 
   video.loadPixels();
-  // loadPixels();
 
   for (let y = 0; y < video.height; y++) {
     for (let x = 0; x < video.width; x++) {
@@ -52,8 +49,6 @@ function draw() {
       }
     }
   }
-
-  // updatePixels();
 
   // if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
   // save(frameCount+".png");
