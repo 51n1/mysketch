@@ -2,12 +2,14 @@
 
 let video;
 let vScale = 16;
+let slider;
 
 function setup() {
   createCanvas(640, 480);
   pixelDensity(1);
   video = createCapture(VIDEO);
   video.size(width/vScale, height/vScale);
+  slider = createSlider(0, 255, 127);
 }
 
 function draw() {
@@ -25,7 +27,7 @@ function draw() {
 
       let bright = (r+g+b)/3;
 
-      let threshold = 127;
+      let threshold = slider.value();
 
       if (bright > threshold) {
         fill(255);
