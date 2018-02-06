@@ -13,11 +13,11 @@ let particles = [];
 let flowfield;
 
 function setup() {
-  // createCanvas(windowWidth, windowHeight);
-  createCanvas(800, 600);
+  createCanvas(windowWidth, windowHeight);
+  // createCanvas(800, 600);
   cols = floor(width / scl);
   rows = floor(height / scl);
-  fr = createP('');
+  // fr = createP('');
 
   flowfield = new Array(cols * rows);
 
@@ -58,7 +58,7 @@ function draw() {
     particles[i].show();
   }
 
-  fr.html(floor(frameRate()));
+  // fr.html(floor(frameRate()));
 
   if (touches.length > 1 || keyIsDown(ENTER)) saveCanvas();
   // save(frameCount+".png");
@@ -128,5 +128,5 @@ function touchMoved() {
 }
 
 function windowResized() {
-  resizeCanvas(width, height);
+  resizeCanvas(windowWidth, windowHeight);
 }
