@@ -1,0 +1,19 @@
+{
+  "name": "p5_bot",
+  "version": "1.0.0",
+  "description": "p5 bot by node.js",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "p5",
+    "node.js",
+    "twitter"
+  ],
+  "author": "51n1",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
+}
