@@ -8,10 +8,10 @@ function setup() {
 function setupCircles() {
   let circles = [];
   let colors = [];
-  colors[0] = { fg: color(255), bg: color(0) };
-  colors[1] = { fg: color(255, 70, 10), bg: color(255) };
-  colors[2] = { fg: color(0), bg: color(255, 210, 0) };
-  colors[3] = { fg: color(255), bg: color(240, 5, 50) };
+  colors[0] = { fg: color(255), bg: color(0) }
+  colors[1] = { fg: color(255, 70, 10), bg: color(255) }
+  colors[2] = { fg: color(0), bg: color(255, 210, 0) }
+  colors[3] = { fg: color(255), bg: color(240, 5, 50) }
   let num = floor(random(4));
   // console.log(num);
   let kusamacolor = colors[num];
