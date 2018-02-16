@@ -2,7 +2,7 @@
 
 var cron = require('node-cron');
 console.log('cron is starting');
-cron.schedule('0 0 0 * * *', () => {//second, minute, hour, day, month, weekday
+cron.schedule('0 0 0,12 * * *', () => {//second, minute, hour, day, month, weekday
 
   console.log('The p5 bot is starting');
 
