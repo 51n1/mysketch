@@ -2,7 +2,7 @@
 // - 10.6 API Query with User Input
 
 let weather;
-let api = "http://api.openweathermap.org/data/2.5/weather?q=";
+let api = "https://api.openweathermap.org/data/2.5/weather?q=";
 // let city = "Kuala%20Lumpur";
 let apiKey = "&APPID=1df9567081dc2f8652bba4107c2f7d27"
 let units = "&units=metric"
@@ -10,9 +10,11 @@ let input;
 
 function setup() {
   createCanvas(500, 500);
-  let button = select("#submit");
-  button.mousePressed(weatherAsk);
   input = select("#city");
+  let submitButton = select("#submit");
+  submitButton.mousePressed(weatherAsk);
+  let resetButton = select("#reset");
+  resetButton.mousePressed(resetInput);
 }
 
 function weatherAsk() {
@@ -23,6 +25,10 @@ function weatherAsk() {
 function gotData(data) {
   console.log(data);
   weather = data;
+}
+
+function resetInput() {
+  input.value("");
 }
 
 function draw() {
