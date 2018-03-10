@@ -49,6 +49,6 @@ function draw() {
   // save(frameCount+".png");
 }
 
-function touchMoved() {
-  return false;
-}
+// function touchMoved() {
+//   return false;
+// }
