@@ -1,14 +1,15 @@
 // 16-6 Array Functions: map() and fill() - Topics of JavaScript/ES6 by Daniel Shiffman
 // 16-7 Array Funcitons: reduce()
 // 16-8 Array Functions: filter()
+// 16-9 Array Functions: sort()
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
   noCanvas();
 
-  let vals = [5, 4, undefined, 2, 9];
+  let vals = [5, 4, 3, 2, 9];
 
-  // 16-6
+  // 16-6 map() and fill()
   // function doubler(x) {
   //   return x * 2;
   // }
@@ -19,7 +20,7 @@ function setup() {
   // let vals = Array(100).fill().map(Math.random);
   // console.log(vals);
 
-  // 16-7
+  // 16-7 reduce()
   // function findMax(acc, val) {
   //   if (val > acc) {
   //     acc = val;
@@ -49,7 +50,7 @@ function setup() {
   let sum = vals.reduce((acc, val) => acc + val);
   console.log(sum);
 
-  // 16-8
+  // 16-8 filter()
   // function isEven(num) {
   //   return (num % 2 == 0);
   // }
@@ -59,8 +60,28 @@ function setup() {
   vals = vals.filter(x => x);
   console.log(vals);
 
-  let s = "It was a  dark and stormy night. ";
-  let words = s.split(/\W+/).filter(word => word.length >= 3);
+  let s = "It was a  2 dark and stormy night. ";
+  let words = s.split(/\W+/).filter(word => word.length >= 1);
   console.log(words);
 
+  // 16-9 sort()
+  vals.sort();
+  console.log(vals);
+  // words.push(2);
+  words.sort((a, b) => a.length - b.length);
+  console.log(words);
+
+  // let objs = [{
+  //   x: 9,
+  //   y: 1
+  // }, {
+  //   x: 5,
+  //   y: 5
+  // }];
+  // function compare(a, b) {
+  //   return b.y - a.y;
+  // }
+  // console.log(objs);
+  // objs.sort(compare);
+  // console.log(objs);
 }
