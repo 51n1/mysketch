@@ -19,6 +19,7 @@ function draw() {
     let p = new Particle();
     particles.push(p);
   }
+  
 
   particles.sort((a,b) => a.col - b.col);
   particles.forEach(p => p.update());
