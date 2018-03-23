@@ -1,5 +1,6 @@
 // - 17.1: Loading and Playing - p5.js Sound Tutorial
 // - 17.2: Play and Pause Button
+// - 17.3: Timing, Jumps and Cues
 let song;
 let playButton;
 let sliderVolume;
@@ -34,6 +35,7 @@ function jumpSong() {
   let t = random(len);
   console.log(t);
   song.jump(t);
+  playButton.html("pause");
 }
 
 function togglePlaying() {
