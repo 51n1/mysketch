@@ -1,18 +1,26 @@
 // - 17.6: Sound Synthesis - p5.js Sound Tutorial
+// - 17.7: ADSR(AttackDecaySustainRelease) Envelope
+
 let wave;
 let button;
 let playing = false;
 let slider;
 
+let env;
+
 function setup() {
   let cnv = createCanvas(windowWidth, 300);
   cnv.parent("sketch_canvas");
+
+  env = new p5.Env();
+  env.setADSR(0.05, 0.1, 0.5, 1);
+  env.setRange(1.2, 0);
 
   wave = new p5.Oscillator();
   wave.setType("sine");
   wave.start();
   wave.freq(440);
-  wave.amp(0);
+  wave.amp(env);
 
   button = createButton("play/pause");
   button.parent("play_button");
@@ -23,14 +31,15 @@ function setup() {
 }
 
 function toggle() {
-  if (!playing) {
-    wave.amp(0.5, 1);
-    playing = true;
-  } else {
-    wave.amp(0, 1);
-    // wave.stop();
-    playing = false;
-  }
+  env.play();
+  // if (!playing) {
+  //   wave.amp(0.5, 1);
+  //   playing = true;
+  // } else {
+  //   wave.amp(0, 1);
+  //   // wave.stop();
+  //   playing = false;
+  // }
 }
 
 function draw() {
