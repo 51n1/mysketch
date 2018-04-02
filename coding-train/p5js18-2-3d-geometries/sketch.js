@@ -1,7 +1,7 @@
 // WebGL and p5.js Tutorial by Daniel Shiffman
 // 18.2: 3D Geometries
 // 18.3: Light and Material
-// 18.4: 
+// 18.4: Texture
 
 let angle = 0;
 let img;
