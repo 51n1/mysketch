@@ -3,28 +3,24 @@
 
 let angle = 0;
 
-// let graphics;
-
-let love;
+let graphics;
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
-  // graphics = createGraphics(200, 200);
-  // graphics.background(255);
 
-  love = createGraphics(200, 200);
-  // love.background(0, 100);
-  love.fill(255);
-  love.textAlign(CENTER);
-  love.textSize(48);
-  love.text('WebGL', 100, 100);
+  graphics = createGraphics(200, 200);
+  graphics.background(255, 0, 0, 200);
+  graphics.fill(255);
+  graphics.textAlign(CENTER);
+  graphics.textSize(48);
+  graphics.text('WebGL', 100, 115);
 }
 
 function draw() {
   background(175);
 
-  // graphics.fill(255, 0, 255);
-  // graphics.ellipse(mouseX, mouseY, 20);
+  // graphics.fill(255, 0, 255, 100);
+  // graphics.ellipse(mouseX, mouseY, 10);
 
   ambientLight(0, 128, 255);
   directionalLight(255, 255, 255, 1, -1, 1);
@@ -33,7 +29,7 @@ function draw() {
   rotateY(angle * 1.3);
   rotateZ(angle * 0.7);
 
-  texture(love);
+  texture(graphics);
   box(200);
 
   angle += 0.01;
