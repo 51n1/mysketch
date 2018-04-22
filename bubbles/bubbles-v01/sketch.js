@@ -1,3 +1,4 @@
+// bubbles version 01: Class Object, No Array
 // Reference source: https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bb7z2IJaTlzwzIg_5yvL4i
 
 let bubble1;
@@ -6,8 +7,8 @@ let bubble2;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  bubble1 = new Bubble(width/2, height, random(10,50));
-  bubble2 = new Bubble(width/2, height, random(10,50));
+  bubble1 = new Bubble(random(10, 20));
+  bubble2 = new Bubble(random(10, 20));
 }
 
 function draw() {
@@ -26,15 +27,15 @@ function draw() {
 }
 
 class Bubble {
-  constructor(x_, y_, r_) {
-    this.x = x_;
-    this.y = y_;
+  constructor(r_) {
+    this.x = random(width);
+    this.y = height;
     this.r = r_;
   }
 
   ascend() {
-    this.y--;
     this.x = this.x + random(-2, 2);
+    this.y = this.y - random(0.5, 1.5);
   }
 
   show() {
