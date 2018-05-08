@@ -35,12 +35,14 @@ function setup() {
 
 function draw() {
   background(160, 250, 255);
+
   for (let i = 0; i < bubbles.length; i++) {
     bubbles[i].c = color(0, 150);
     bubbles[i].show();
   }
 
   filter(BLUR, 2);
+
   for (let i = 0; i < bubbles.length; i++) {
     bubbles[i].x = bubbles[i].x - 5;
     bubbles[i].y = bubbles[i].y - 5;
