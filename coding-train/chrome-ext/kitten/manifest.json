@@ -3,7 +3,8 @@
   "name": "Chrome Exkittension",
   "version": "0.1",
   "web_accessible_resources": [
-    "kittens/*.jpg"
+    "kittens/*.jps",
+    "kittens/*.png"
   ],
   "content_scripts": [
     {

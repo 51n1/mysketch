@@ -5,9 +5,7 @@ console.log("Kittens of the world, unite as one!");
 // tim-mossholder-594536-unsplash.jpg
 
 let filenames = [
-  "brenda-helen-17456-unsplash.jpg",
-  "david-clode-547746-unsplash.jpg",
-  "tim-mossholder-594536-unsplash.jpg"
+  "fancy_face.png"
 ];
 
 let imgs = document.getElementsByTagName('img');
