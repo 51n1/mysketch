@@ -12,15 +12,13 @@ function setup() {
   &sourceDictionaries=all
   &useCanonical=false
   &includeTags=false
-  &api_key=
+  &api_key=${apikey}
   `
   url = url.replace(/\s+/g, '');
 
   loadJSON(url, gotData);
 
   function gotData(data) {
-    createP(data[0].text).style('font-size', '48pt');
+    createP(data[0].text).style('font-size', '18pt');
   }
-
-  // createP(word);
 }
