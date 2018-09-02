@@ -7,7 +7,7 @@ drawMotion3D dm3d;
  
 void setup() {
   //size(displayWidth, displayHeight, OPENGL);
-  size(800, 450, OPENGL);
+  size(1200, 800, OPENGL);
   dm3d = new drawMotion3D(1000, 8.0, 0.75);
   // numbers of line point, change values, depth of z-positions
   noFill();
@@ -47,4 +47,3 @@ void keyPressed() {
     saveFrame("dm3d-curve-#####.png");
   }
 }
-
