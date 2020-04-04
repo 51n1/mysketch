@@ -1,28 +1,24 @@
-// - p5.js template
+// 1.3 Random Vectors - The Nature of Code 2
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  background(0);
 }
 
 function draw() {
-  background(0);
+
+  translate(width/2, height/2);
+
+  // let v = createVector(random(-100, 100), random(-100, 100));
+  let v = p5.Vector.random2D();
+  v.mult(random(50, 100));
+
+  strokeWeight(4);
+  stroke(255, 20);
+  line(0, 0, v.x, v.y);
 
   // if (touches.length > 1) saveCanvas();
   // save(frameCount+".png");
-}
-
-class Circle {
-  constructor(x_, y_) {
-    this.x = x_;
-    this.y = y_;
-    this.r = 1;
-  }
-
-  show() {
-    stroke(255);
-    noFill();
-    ellipse(this.x, this.y, this.r * 2);
-  }
 }
 
 function keyPressed() {
