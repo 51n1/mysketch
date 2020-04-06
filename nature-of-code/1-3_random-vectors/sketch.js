@@ -9,7 +9,7 @@ function draw() {
 
   translate(width/2, height/2);
 
-  // let v = createVector(random(-100, 100), random(-100, 100));
+  // let v = createVector(random(-1, 1), random(-1, 1));
   let v = p5.Vector.random2D();
   v.mult(random(50, 100));
 
