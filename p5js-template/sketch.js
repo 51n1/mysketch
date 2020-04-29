@@ -26,7 +26,7 @@ class Circle {
 }
 
 function keyPressed() {
-  if (keyIsDown(ENTER)) saveCanvas();
+  if (keyCode === ENTER) saveCanvas();
 }
 
 function touchMoved() {
