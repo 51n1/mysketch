@@ -1,11 +1,14 @@
+// Reference: https://youtu.be/ikwNrFvnL3g
+// Demo: https://51n1.github.io/mysketch/nature-of-code/i-5_2d-noise_ver2/
+
 let inc = 0.01;
 let a = 0;
 
 function setup() {
   // createCanvas(windowWidth, windowHeight);
-  createCanvas(600, 300);
+  createCanvas(600, 600);
   pixelDensity(1);
-  noLoop();
+  // noLoop();
 }
 
 function draw() {
@@ -35,7 +38,3 @@ function draw() {
 function keyPressed() {
   if (keyCode === ENTER) saveCanvas();
 }
-
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }

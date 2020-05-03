@@ -11,7 +11,6 @@ function draw() {
   let yoff = 0;
 
   loadPixels();
-  // beginShape();
 
   for (let y = 0; y < height; y++){
     let xoff = 0;
@@ -28,16 +27,13 @@ function draw() {
     }
     yoff += inc;
   }
-  // endShape();?
+
   updatePixels();
+
   noLoop();
 
 }
 
 function keyPressed() {
   if (keyCode === ENTER) saveCanvas();
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
 }
