@@ -9,7 +9,7 @@ function setup() {
 }
 
 function draw() {
-  // background(0);
+  background(0);
   mover.update();
   mover.show();
 }
@@ -27,12 +27,11 @@ class Mover {
 
     let mouse = createVector(mouseX, mouseY);
     this.acc = p5.Vector.sub(mouse, this.pos);
-    this.acc.setMag(0.05);
-
+    this.acc.setMag(0.4);
     this.vel.add(this.acc);
     // this.vel.limit(5);
-
     this.pos.add(this.vel);
+    this.acc.set(0, 0);
   }
 
   show() {

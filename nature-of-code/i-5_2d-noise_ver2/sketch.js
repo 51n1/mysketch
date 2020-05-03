@@ -5,6 +5,7 @@ function setup() {
   // createCanvas(windowWidth, windowHeight);
   createCanvas(600, 300);
   pixelDensity(1);
+  noLoop();
 }
 
 function draw() {
