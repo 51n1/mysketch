@@ -1,4 +1,5 @@
-// - p5.js template
+// Reference: {URL}
+// Demo: https://51n1.github.io/mysketch/{NAME}/
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
