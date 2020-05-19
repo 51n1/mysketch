@@ -1,4 +1,5 @@
 // - By GIF Loop Template
+// Code Name: nine loops
 // Reference: Coding Challenge #135: Making a GIF Loop in Processing <https://youtu.be/nBKwCCtWlUg>
 
 let totalFrames = 120;
