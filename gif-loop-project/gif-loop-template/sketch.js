@@ -1,6 +1,5 @@
-// - GIF Loop Template
-// Coding Challenge #135: Making a GIF Loop in Processing
-// https://youtu.be/nBKwCCtWlUg
+// - By GIF Loop Template
+// Reference: Coding Challenge #135: Making a GIF Loop in Processing <https://youtu.be/nBKwCCtWlUg>
 
 let totalFrames = 120;
 let counter = 0;

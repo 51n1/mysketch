@@ -1,6 +1,5 @@
-// - GIF Loop Template
-// Coding Challenge #135: Making a GIF Loop in Processing
-// https://youtu.be/nBKwCCtWlUg
+// - By GIF Loop Template
+// Reference: Coding Challenge #135: Making a GIF Loop in Processing <https://youtu.be/nBKwCCtWlUg>
 
 let totalFrames = 120;
 let counter = 0;
@@ -34,18 +33,6 @@ function draw() {
 }
 
 function render(percent) {
-  // background(0);
-  // fill(255);
-  // ellipse(percent * width, height/2, 20, 20);
-
-  // let angle = percent * TWO_PI;
-  // translate(width/2, height/2);
-  // rectMode(CENTER);
-  // noFill();
-  // stroke(255);
-  // strokeWeight(2);
-  // rotate(angle);
-  // rect(0, 0, 100);
 
   background(0);
   stroke(255);

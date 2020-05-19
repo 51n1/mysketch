@@ -6,7 +6,7 @@
 // Coding Challenge #135: Making a GIF Loop in Processing
 // https://youtu.be/nBKwCCtWlUg
 
-let totalFrames = 240;
+let totalFrames = 120;
 let counter = 0;
 let isRecord = false;
 let canvas;
