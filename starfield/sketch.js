@@ -4,7 +4,7 @@ let stars = [];
 let speed = 100;
 
 function setup() {
-  createCanvas(4096, 2304);
+  createCanvas(1920, 1080);
   // createCanvas(document.body.clientWidth, windowHeight);
   // createCanvas(windowWidth, windowHeight);
   // select("body").style("background-color", color(34, 34, 34));
