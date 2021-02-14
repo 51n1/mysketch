@@ -1,4 +1,4 @@
-// - By GIF Loop Template
+// Made By GIF Loop Template
 // Reference: Coding Challenge #135: Making a GIF Loop in Processing <https://youtu.be/nBKwCCtWlUg>
 // This code is https://github.com/51n1/mysketch/tree/master/gif-loop-project/gif-loop-template/
 // This code's demo url is https://51n1.github.io/mysketch/gif-loop-project/gif-loop-template/
