@@ -3,8 +3,8 @@
 let c = []
 
 function setup() {
-  // createCanvas(windowWidth,windowHeight);
-  createCanvas(1920,1080);
+  createCanvas(windowWidth,windowHeight);
+  // createCanvas(1920,1080);
   // frameRate(10);
 }
 

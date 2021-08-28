@@ -1,33 +1,39 @@
+// Reference Code
 // 50.1: CODING CHALLENGE: ANIMATED CIRCLE PACKING Part 1
 // - p5.js Tutorial by Daniel Shiffman
+
 let circles = [];
 let spots = [];
-let img;
-
-function preload() {
-  img = loadImage("fuji.png");
-}
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  // createCanvas(1000, 500);
-  // frameRate(10);
+  let word = String.fromCharCode(getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt(), getRandomInt());
+  let pg = createGraphics(width, height);
+  pg.background(0);
+  pg.fill(255);
+  pg.textSize(400);
+  pg.textAlign(LEFT, TOP);
+  pg.textStyle(BOLD);
+  pg.text(word, 0, 0, width);
+  // image(pg, 0, 0);
+
   let density = displayDensity();
   pixelDensity(density);
-  img.loadPixels();
-  for (let x = 0; x < img.width; x++) {
-    for (let y = 0; y < img.height; y++) {
-      let index = x + y * img.width;
-      let c = img.pixels[index*4];
+  pg.loadPixels();
+  for (let x = 0; x < pg.width; x++) {
+    for (let y = 0; y < pg.height; y++) {
+      let index = x + y * pg.width;
+      let c = pg.pixels[index*8];
       let b = brightness(c);
       if ( b > 1 ) {
         spots.push(createVector(x, y));
       }
     }
   }
-  console.log(img.width);
-  console.log(img.height);
-  console.log("pixels", img.pixels.length);
+  console.log(word);
+  console.log(pg.width);
+  console.log(pg.height);
+  console.log("pixels", pg.pixels.length);
   console.log("spots", spots.length);
   console.log(density)
 }
@@ -131,4 +137,8 @@ class Circle {
 
 function touchMoved() {
   return false;
+}
+
+function getRandomInt() {
+  return Math.floor(33 + Math.random() * 93);
 }
